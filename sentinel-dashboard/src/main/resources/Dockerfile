@@ -13,7 +13,7 @@ RUN apk --update add curl bash ttf-dejavu && \
       rm -rf /var/cache/apk/*
 
 VOLUME /tmp
-ADD sentinel-dashboard.jar app.jar
+ADD sentinel-parent-1.8.1.jar app.jar
 
 ENTRYPOINT ["/bin/sh","-c","java \
                             $JAVA_OPTS \
