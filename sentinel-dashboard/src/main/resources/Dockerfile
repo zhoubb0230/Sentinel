@@ -15,4 +15,9 @@ RUN apk --update add curl bash ttf-dejavu && \
 VOLUME /tmp
 ADD sentinel-dashboard.jar app.jar
 
-ENTRYPOINT java -Dserver.port=8888 -Dcsp.sentinel.dashboard.server=localhost:8888 -Dproject.name=sentinel-dashboard -jar sentinel-dashboard.jar
+ENTRYPOINT ["/bin/sh","-c","java \
+                            $JAVA_OPTS \
+                            -Dserver.port=8888 \
+                            -Dcsp.sentinel.dashboard.server=localhost:8888 \
+                            -Dproject.name=sentinel-dashboard \
+                            -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
