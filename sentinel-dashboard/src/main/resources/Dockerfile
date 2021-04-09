@@ -13,11 +13,11 @@ RUN apk --update add curl bash ttf-dejavu && \
       rm -rf /var/cache/apk/*
 
 VOLUME /tmp
-ADD sentinel-parent-1.8.1.jar app.jar
+ADD sentinel-dashboard.jar app.jar
 
 ENTRYPOINT ["/bin/sh","-c","java \
                             $JAVA_OPTS \
                             -Dserver.port=8888 \
                             -Dcsp.sentinel.dashboard.server=localhost:8888 \
                             -Dproject.name=sentinel-dashboard \
-                            -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
+                            -jar /app.jar"]
