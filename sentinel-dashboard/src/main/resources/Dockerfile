@@ -17,7 +17,5 @@ ADD sentinel-dashboard.jar app.jar
 
 ENTRYPOINT ["/bin/sh","-c","java \
                             $JAVA_OPTS \
-                            -Dserver.port=21080 \
-                            -Dcsp.sentinel.dashboard.server=localhost:21080 \
                             -Dproject.name=sentinel-dashboard \
                             -jar /app.jar"]
