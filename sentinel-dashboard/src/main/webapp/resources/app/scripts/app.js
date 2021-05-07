@@ -223,15 +223,15 @@ angular
       })
 
       .state('dashboard.authority', {
-            templateUrl: 'app/views/authority.html',
-            url: '/authority/:app',
-            controller: 'AuthorityRuleController',
+            templateUrl: 'app/views/authority_v2.html',
+            url: '/v2/authority/:app',
+            controller: 'AuthorityRuleControllerV2',
             resolve: {
                 loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         name: 'sentinelDashboardApp',
                         files: [
-                            'app/scripts/controllers/authority.js',
+                            'app/scripts/controllers/authority_v2.js',
                         ]
                     });
                 }]
@@ -239,15 +239,15 @@ angular
        })
 
       .state('dashboard.degrade', {
-        templateUrl: 'app/views/degrade.html',
-        url: '/degrade/:app',
-        controller: 'DegradeCtl',
+        templateUrl: 'app/views/degrade_v2.html',
+        url: '/v2/degrade/:app',
+        controller: 'DegradeCtlV2',
         resolve: {
           loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load({
               name: 'sentinelDashboardApp',
               files: [
-                'app/scripts/controllers/degrade.js',
+                'app/scripts/controllers/degrade_v2.js',
               ]
             });
           }]
@@ -255,15 +255,15 @@ angular
       })
 
       .state('dashboard.system', {
-        templateUrl: 'app/views/system.html',
-        url: '/system/:app',
-        controller: 'SystemCtl',
+        templateUrl: 'app/views/system_v2.html',
+        url: '/v2/system/:app',
+        controller: 'SystemCtlV2',
         resolve: {
           loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
             return $ocLazyLoad.load({
               name: 'sentinelDashboardApp',
               files: [
-                'app/scripts/controllers/system.js',
+                'app/scripts/controllers/system_v2.js',
               ]
             });
           }]

@@ -1,7 +1,7 @@
 var app = angular.module('sentinelDashboardApp');
 
 app.controller('IdentityCtl', ['$scope', '$stateParams', 'IdentityService',
-  'ngDialog', 'FlowServiceV1', 'DegradeService', 'AuthorityRuleService', 'ParamFlowService', 'MachineService',
+  'ngDialog', 'FlowServiceV2', 'DegradeServiceV2', 'AuthorityRuleServiceV2', 'ParamFlowService', 'MachineService',
   '$interval', '$location', '$timeout',
   function ($scope, $stateParams, IdentityService, ngDialog,
     FlowService, DegradeService, AuthorityRuleService, ParamFlowService, MachineService, $interval, $location, $timeout) {
@@ -95,7 +95,7 @@ app.controller('IdentityCtl', ['$scope', '$stateParams', 'IdentityService',
       FlowService.newRule(flowRuleDialogScope.currentRule).success(function (data) {
         if (data.code === 0) {
           flowRuleDialog.close();
-          let url = '/dashboard/flow/' + $scope.app;
+          let url = '/dashboard/v2/flow/' + $scope.app;
           $location.path(url);
         } else {
           alert('失败：' + data.msg);
@@ -163,7 +163,7 @@ app.controller('IdentityCtl', ['$scope', '$stateParams', 'IdentityService',
       DegradeService.newRule(degradeRuleDialogScope.currentRule).success(function (data) {
         if (data.code === 0) {
           degradeRuleDialog.close();
-          var url = '/dashboard/degrade/' + $scope.app;
+          var url = '/dashboard/v2/degrade/' + $scope.app;
           $location.path(url);
         } else {
           alert('失败：' + data.msg);
@@ -195,7 +195,7 @@ app.controller('IdentityCtl', ['$scope', '$stateParams', 'IdentityService',
           AuthorityRuleService.addNewRule(ruleEntity).success((data) => {
               if (data.success) {
                   authorityRuleDialog.close();
-                  let url = '/dashboard/authority/' + $scope.app;
+                  let url = '/dashboard/v2/authority/' + $scope.app;
                   $location.path(url);
               } else {
                   alert('添加规则失败：' + data.msg);
